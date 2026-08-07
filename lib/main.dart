@@ -7,8 +7,7 @@ import 'Controller/auth_controller.dart';
 import 'Controller/network_controller.dart';
 import 'Controller/themeController.dart';
 import 'appContainer.dart';
-import 'frontend/screens/HomePage.dart';
-import 'frontend/screens/NiveHomeScreen.dart';
+import 'frontend/screens/homePage.dart';
 import 'frontend/widgets/NetworkWrapper.dart';
 
 void main() {

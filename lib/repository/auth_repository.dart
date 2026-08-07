@@ -10,7 +10,7 @@ class AuthRepository {
 
   Future<dynamic> getAllDataSets() async {
     var url = Api.getAllDataSet;
-    print('url:$url');
+    // print('url:$url');
     var response = await httpHelper.get(url, auth: true,);
     return jsonDecode(response);
   }

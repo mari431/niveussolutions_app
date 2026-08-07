@@ -1,7 +1,7 @@
 //Packages
 import 'package:flutter/material.dart';
 
-import 'MyColors.dart';
+import 'myColors.dart';
 
 final ThemeData appThemeData = ThemeData(
   primaryColor: const Color.fromRGBO(192, 131, 7, 1),

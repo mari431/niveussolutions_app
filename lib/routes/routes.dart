@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 
 import '../frontend/bindings/app_bindings.dart';
-import '../frontend/screens/HomePage.dart';
-import '../frontend/screens/NiveHomeScreen.dart';
+import '../frontend/screens/homePage.dart';
 
 
 class RoutesClass {

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:niveussolutions/Controller/themeController.dart';
 import 'package:get/get.dart';
 
-import '../Models/UserModel.dart';
-import '../frontend/screens/UserDetailsDialog.dart';
+import '../Models/userModel.dart';
+import '../frontend/screens/userDetailsDialog.dart';
 import '../repository/auth_repository.dart';
 import 'alert_controller.dart';
 
