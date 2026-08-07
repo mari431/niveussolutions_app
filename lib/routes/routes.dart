@@ -26,21 +26,5 @@ class RoutesClass {
       // transitionDuration: const Duration(seconds: 1)
     ),
 
-    // GetPage(
-    //   name: updateRatesAfterAssigningForm,
-    //   page: () => UpdateRatesAfterAssigningForm(),
-    //   binding: ProductionFormsBinding(),
-    //   title: 'TEST Enterprises',
-    //   // bindings: [
-    //   //   ProductionFormsBinding()
-    //   // ]
-    //   // transition: Transition.fade,
-    //   // transitionDuration: const Duration(seconds: 1)
-    // ),
-
-
-
-
-
   ];
 }

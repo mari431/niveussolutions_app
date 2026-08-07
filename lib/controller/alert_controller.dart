@@ -125,31 +125,6 @@ class FailAlertController extends GetxController {
   }
 }
 
-
-// class LoadingController extends GetxController {
-//   void showLoading(String message) {
-//     Get.dialog(
-//       barrierDismissible: false, // Set to false to prevent dismissing on outside tap
-//       builder: (context) => AlertDialog(
-//         content: Column(
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             CircularProgressIndicator(),
-//             SizedBox(height: 16),
-//             Text(message),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//
-//   void hideLoading() {
-//     Get.back();
-//   }
-// }
-
-
-
 class LoadingController extends GetxController {
   static LoadingController get to => Get.put(LoadingController());
   void showLoading(bool show, String message) {
@@ -181,54 +156,5 @@ class LoadingController extends GetxController {
     }
   }
 }
-
-
-
-
-// class LoadingTimerController extends GetxController {
-//   void showTimer(bool show, String message) {
-//     if (show) {
-//       Timer.periodic(Duration(seconds: 1), (timer)
-//       {
-//         Get.dialog(
-//           barrierDismissible: false,
-//           // Set to false to prevent dismissing on outside tap
-//           AlertDialog(
-//             backgroundColor: GlobeAppColors.getAlertDialogueBGColor(
-//                 _themeFindController.isDarkMode),
-//              // title: Text("Loop Alert"),
-//             // content: Text(message),
-//             content: Container(
-//               height: 100,
-//               width: 250,
-//               child: Center(
-//                 child: Column(
-//                   children: [
-//                     CircularProgressIndicator(),
-//                     SizedBox(height: 5),
-//                     Text(message, style: TextStyle(
-//                         color: GlobeAppColors.getWhiteTextColor(
-//                             _themeFindController.isDarkMode))),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//             actions: [
-//               TextButton(
-//                 child: Text("Cancel"),
-//                 onPressed: () {
-//                   timer.cancel(); // Stop the timer
-//                   Get.back();
-//                 },
-//               ),
-//             ],
-//           ),
-//         );
-//       });
-//     } else {
-//       Get.back();
-//     }
-//   }
-// }
 
 
