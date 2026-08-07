@@ -52,6 +52,11 @@ class AuthController extends GetxController {
   RxList<UserModel> filteredUserList = <UserModel>[].obs;
   TextEditingController searchController = TextEditingController();
   Rxn<UserModel> selectedUser = Rxn<UserModel>();
+  final RxInt selectedUserIndex = (-1).obs;
+  // final RxString selectedUserId = ''.obs;
+
+  // final RxInt? selectedUserIndex = RxInt(-1);
+
 
   RxList<String> languageList = <String>[].obs;
   RxnString selectedLanguage = RxnString();
@@ -203,6 +208,7 @@ class AuthController extends GetxController {
     isAscending.toggle();
     // userList.refresh();
     filteredUserList.refresh();
+    selectedUserIndex.value = -1;
   }
 
   void sortByColumn1(String column) {
@@ -259,6 +265,7 @@ class AuthController extends GetxController {
     selectedColumn.value = column;
     isAscending.toggle();
     userList.refresh();
+    selectedUserIndex.value = -1;
   }
 
   void searchUser(String keyword) {
@@ -329,14 +336,21 @@ class AuthController extends GetxController {
   }
 
 
-  void openUserDetails(UserModel user) {
-    selectedUser.value = user;
+  Future<void> openUserDetails(UserModel user, int index)async {
+    // selectedUserId.value = user.id.toString();
+    selectedUser.value =  user;
+    selectedUserIndex.value =  index;
+    // selectedUserId.value = user.id.toString();
+    // print('selectedUserIndex::${selectedUserIndex.value}');
+    // selectedUserId.value = user.id.toString();
 
+    // await Future.delayed(Duration(milliseconds: 200));
     Get.dialog(
       barrierDismissible: false,
       const UserDetailsDialog(),
       // barrierDismissible: true,
     );
+
   }
 
 

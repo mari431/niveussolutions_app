@@ -208,7 +208,7 @@ class NiveHomeScreen1 extends StatelessWidget {
                                         final user = _authController.filteredUserList[index];
                                         return GestureDetector(
                                           onTap: () {
-                                            _authController.openUserDetails(user);
+                                            _authController.openUserDetails(user,index);
                                           },
                                           child: Container(
                                             child: Row(

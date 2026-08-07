@@ -66,6 +66,8 @@ class NiveHomeScreen extends StatelessWidget {
 
         const SizedBox(height: 10),
 
+        Text('Total Records: ${_authController.filteredUserList.length}'),
+
         Row(
           children: [
             _buildHeader(
@@ -78,25 +80,36 @@ class NiveHomeScreen extends StatelessWidget {
               getColumnWidth(context, "Language"),
               40,
             ),
-            _buildHeader(
-              "ID",
-              getColumnWidth(context, "ID"),
-              40,
-            ),
+            // _buildHeader(
+            //   "ID",
+            //   getColumnWidth(context, "ID"),
+            //   40,
+            // ),
           ],
         ),
 
         Expanded(
-          child: ListView.builder(
+          child: Obx(
+                  () {
+                // final selectedId = _authController.selectedUserId.value;
+                final selectedId = _authController.selectedUserIndex.value;
+                return  ListView.builder(
             itemCount: _authController.filteredUserList.length,
             itemBuilder: (context, index) {
 
               final user =
               _authController.filteredUserList[index];
 
+              // final bool isSelected = selectedId == user.id.toString();
+              final bool isSelected = selectedId == index;
+
+
               return InkWell(
-                onTap: () =>
-                    _authController.openUserDetails(user),
+                onTap: () {
+                // _authController.selectedUserId.value = user.id.toString();
+
+                _authController.openUserDetails(user, index);
+    },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   // crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,20 +118,20 @@ class NiveHomeScreen extends StatelessWidget {
                     _buildDetails(
                       user.name,
                       getColumnWidth(context, "Name"),
-                      50,9
+                      50,9,isSelected
                     ),
 
                     _buildDetails(
                       user.language,
                       getColumnWidth(context, "Language"),
-                      50,9
+                      50,9,isSelected
                     ),
 
-                    _buildDetails(
-                      user.id,
-                      getColumnWidth(context, "ID"),
-                      50,9
-                    ),
+                    // _buildDetails(
+                    //   user.id,
+                    //   getColumnWidth(context, "ID"),
+                    //   50,9,isSelected
+                    // ),
 
                     // Text(
                     //   user.name,
@@ -139,7 +152,7 @@ class NiveHomeScreen extends StatelessWidget {
                 ),
               );
             },
-          ),
+          ); }) ,
         ),
       ],
     );
@@ -200,53 +213,139 @@ class NiveHomeScreen extends StatelessWidget {
 
 
             Expanded(
-              child: ListView.builder(
+              child: Obx(
+                    () {
+                      // final selectedId = _authController.selectedUserId.value;
+                      final selectedId = _authController.selectedUserIndex.value;
+              return ListView.builder(
                 itemCount:
                 _authController.filteredUserList.length,
                 itemBuilder: (context, index) {
 
-                  final user =
-                  _authController.filteredUserList[index];
+                  final user = _authController.filteredUserList[index];
+
+                  // final bool isSelected = selectedId == user.id.toString();
+                  final bool isSelected = selectedId == index;
 
                   return GestureDetector(
-                    onTap: () =>
-                        _authController.openUserDetails(user),
-                    child: Row(
+                    onTap: () {
+
+                      // _authController.selectedUserId.value = user.id.toString();
+
+                      _authController.openUserDetails(user, index);
+
+                    },
+
+                    child:
+
+                    Row(
                       children: [
 
                         _buildDetails(
-                          user.name,
-                          getColumnWidth(context, "Name"),
-                          50,12,
+                            user.name,
+                            getColumnWidth(context, "Name"),
+                            50,12,isSelected
                         ),
 
                         _buildDetails(
                           user.language,
                           getColumnWidth(context, "Language"),
-                          50,12,
+                          50,12,isSelected
                         ),
 
                         _buildDetails(
                           user.id,
                           getColumnWidth(context, "ID"),
-                          50,12,
+                          50,12,isSelected
                         ),
 
                         _buildDetails(
                           user.version,
                           getColumnWidth(context, "Version"),
-                          50,12
+                          50,12,isSelected
                         ),
                       ],
                     ),
+
                   );
                 },
-              ),
+              ); }),
+
             ),
+
           ],
         ),
       ),
     );
+  }
+
+  Widget _buildDetails(dynamic value, double wid, double hei, double fontSize, bool isSelected,) {
+    return Container(
+        width: wid,
+        height: hei,
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? Colors.blue
+              : Colors.transparent,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
+          ),
+        ),
+        child: Center(
+          child: Text(
+            value?.toString() ?? "-",
+            style: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.w600,
+              color: isSelected ? Colors.white : Colors.black,
+            ),
+          ),
+        ),
+      );
+  }
+
+  Widget _buildHeader(String column, double wid, double hei) {
+    return Obx(() {
+      return SizedBox(
+        width: wid,
+        height: hei,
+        child: GestureDetector(
+          onTap: () => _authController.sortByColumn(column),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              color: _authController.selectedColumn.value == column
+                  ? Colors.red.shade200
+                  : Colors.white,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text(
+                    column,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                    ),
+                  ),
+                ),
+                if (_authController.selectedColumn.value == column)
+                  Icon(
+                    _authController.isAscending.value
+                        ? Icons.arrow_upward
+                        : Icons.arrow_downward,
+                    size: 16,
+                  ),
+              ],
+            ),
+          ),
+        ),
+      );
+    });
   }
 
   Widget _buildSearchWidget() {
@@ -332,77 +431,6 @@ class NiveHomeScreen extends StatelessWidget {
           // _authController.filterByLanguage;
         },
       ),
-    );
-  }
-
-
-  Widget _buildHeader(String column, double wid, double hei) {
-    return Obx(() {
-      return SizedBox(
-        width: wid,
-        height: hei,
-        child: GestureDetector(
-          onTap: () => _authController.sortByColumn(column),
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              color: _authController.selectedColumn.value == column
-                  ? Colors.red.shade200
-                  : Colors.white,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Text(
-                    column,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-                if (_authController.selectedColumn.value == column)
-                  Icon(
-                    _authController.isAscending.value
-                        ? Icons.arrow_upward
-                        : Icons.arrow_downward,
-                    size: 16,
-                  ),
-              ],
-            ),
-          ),
-        ),
-      );
-    });
-  }
-
-  Widget _buildDetails(dynamic value,double wid, double hei, double fontSize) {
-    return Column(
-      children: [
-        Container(
-          width: wid,
-          height: hei,
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            // color: Colors.red,
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
-            ),
-          ),
-          child: Center(
-            child: Text(
-              value?.toString() ?? "-",
-              style: TextStyle(
-                fontSize: fontSize,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 

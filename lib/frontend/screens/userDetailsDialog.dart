@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:niveussolutions/frontend/widgets/custom_buttons.dart';
 
 import '../../controller/auth_controller.dart';
 
@@ -12,6 +13,7 @@ class UserDetailsDialog extends StatelessWidget {
 
     return AlertDialog(
       title: const Text("Record Details"),
+      backgroundColor: Colors.white,
       content: Obx(() {
         final user = controller.selectedUser.value;
 
@@ -46,10 +48,13 @@ class UserDetailsDialog extends StatelessWidget {
         );
       }),
       actions: [
-        TextButton(
-          onPressed: Get.back,
-          child: const Text("Close"),
-        )
+        Container(
+            width: 80,
+            child: CustomBackButton(text: 'Close'))
+        // TextButton(
+        //   onPressed: Get.back,
+        //   child: const Text("Close"),
+        // )
       ],
     );
   }
