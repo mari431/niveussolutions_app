@@ -1,3 +1,8 @@
 [build]
-command = "flutter build web"
+command = "bash build.sh"
 publish = "build/web"
+
+
+#[build]
+#command = "flutter build web"
+#publish = "build/web"
