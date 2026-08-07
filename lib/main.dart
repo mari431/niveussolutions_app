@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:niveussolutions/routes/routes.dart';
 
-import 'Controller/auth_controller.dart';
-import 'Controller/network_controller.dart';
-import 'Controller/themeController.dart';
+import 'controller/auth_controller.dart';
+import 'controller/network_controller.dart';
+import 'controller/themeController.dart';
 import 'appContainer.dart';
 import 'frontend/screens/homePage.dart';
 import 'frontend/widgets/networkWrapper.dart';
@@ -34,7 +34,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
 
-  static AuthController get authPutController => Get.put(AuthController());
+  // static AuthController get authPutController => Get.put(AuthController());
 
 
   @override
