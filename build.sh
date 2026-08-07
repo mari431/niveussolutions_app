@@ -2,16 +2,23 @@
 
 set -e
 
-echo "Installing Flutter..."
+FLUTTER_VERSION="3.44.4"
+FLUTTER_DIR="$HOME/flutter"
 
-git clone https://github.com/flutter/flutter.git --depth 1 --branch stable $HOME/flutter
+echo "Installing Flutter $FLUTTER_VERSION..."
 
-export PATH="$HOME/flutter/bin:$PATH"
+git clone \
+  --depth 1 \
+  --branch "$FLUTTER_VERSION" \
+  https://github.com/flutter/flutter.git \
+  "$FLUTTER_DIR"
+
+export PATH="$FLUTTER_DIR/bin:$PATH"
 
 echo "Flutter version:"
 flutter --version
 
-echo "Enabling web..."
+echo "Enabling Flutter Web..."
 flutter config --enable-web
 
 echo "Getting dependencies..."
