@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Controller/auth_controller.dart';
+import '../../controller/auth_controller.dart';
 
 class UserDetailsDialog extends StatelessWidget {
   const UserDetailsDialog({super.key});

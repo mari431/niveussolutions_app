@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:niveussolutions/Controller/themeController.dart';
+import 'package:niveussolutions/controller/themeController.dart';
 import '../frontend/constance/globe_colors.dart';
 
 final ThemeController _themeFindController = Get.find<ThemeController>();

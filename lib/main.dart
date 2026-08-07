@@ -8,7 +8,7 @@ import 'Controller/network_controller.dart';
 import 'Controller/themeController.dart';
 import 'appContainer.dart';
 import 'frontend/screens/homePage.dart';
-import 'frontend/widgets/NetworkWrapper.dart';
+import 'frontend/widgets/networkWrapper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

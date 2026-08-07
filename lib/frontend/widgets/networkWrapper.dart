@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Controller/network_controller.dart';
+import '../../controller/network_controller.dart';
 
 
 class NetworkWrapper extends StatelessWidget {

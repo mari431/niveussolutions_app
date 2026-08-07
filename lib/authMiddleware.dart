@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:niveussolutions/routes/routes.dart';
 
-import 'Controller/auth_controller.dart';
+import 'controller/auth_controller.dart';
 
 class AuthMiddleware extends GetMiddleware {
 

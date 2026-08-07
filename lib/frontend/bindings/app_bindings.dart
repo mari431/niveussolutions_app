@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../../Controller/alert_controller.dart';
-import '../../Controller/auth_controller.dart';
+import '../../controller/alert_controller.dart';
+import '../../controller/auth_controller.dart';
 
 class HomeScreenBinding extends Bindings {
   @override

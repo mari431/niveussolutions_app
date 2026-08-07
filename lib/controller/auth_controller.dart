@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:niveussolutions/Controller/themeController.dart';
+import 'package:niveussolutions/controller/themeController.dart';
 import 'package:get/get.dart';
 
-import '../Models/userModel.dart';
+import '../models/userModel.dart';
 import '../frontend/screens/userDetailsDialog.dart';
 import '../repository/auth_repository.dart';
 import 'alert_controller.dart';

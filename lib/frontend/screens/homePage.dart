@@ -1,8 +1,8 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../Controller/auth_controller.dart';
-import '../../Controller/themeController.dart';
+import '../../controller/auth_controller.dart';
+import '../../controller/themeController.dart';
 import '../constance/globe_colors.dart';
 import 'globe_drawer.dart';
 

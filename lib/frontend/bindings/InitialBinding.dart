@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
-import '../../Controller/auth_controller.dart';
-import '../../Controller/network_controller.dart';
-import '../../Controller/themeController.dart';
+import '../../controller/auth_controller.dart';
+import '../../controller/network_controller.dart';
+import '../../controller/themeController.dart';
 
 
 

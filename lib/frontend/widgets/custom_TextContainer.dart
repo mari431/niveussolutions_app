@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../Controller/themeController.dart';
+import '../../controller/themeController.dart';
 import '../constance/globe_colors.dart';
 final ThemeController _themeFindController = Get.find<ThemeController>();
 
