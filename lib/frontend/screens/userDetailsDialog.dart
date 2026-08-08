@@ -27,23 +27,18 @@ class UserDetailsDialog extends StatelessWidget {
           children: [
 
             _buildColumn("Name","${user.name}"),
-            Text("Name : ${user.name}"),
             const SizedBox(height: 3),
 
             _buildColumn("Language","${user.language}"),
-            // Text("Language : ${user.Language}"),
             const SizedBox(height: 3),
 
             _buildColumn("ID","${user.id}"),
-            // Text("ID : ${user.id}"),
             const SizedBox(height: 3),
 
             _buildColumn("Bio","${user.bio}"),
-            // Text("Bio : ${user.bio}"),
             const SizedBox(height: 3),
 
             _buildColumn("Version","${user.version}"),
-            // Text("Version : ${user.version}"),
           ],
         );
       }),

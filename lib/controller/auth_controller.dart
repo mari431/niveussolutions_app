@@ -269,6 +269,7 @@ class AuthController extends GetxController {
   }
 
   void searchUser(String keyword) {
+    selectedUserIndex.value = -1;
     keyword = keyword.trim().toLowerCase();
 
     if (keyword.isEmpty) {
@@ -315,6 +316,7 @@ class AuthController extends GetxController {
   }
 
   void applyFilters() {
+    selectedUserIndex.value = -1;
     Iterable<UserModel> result = userList;
 
     if (selectedLanguage.value != null &&

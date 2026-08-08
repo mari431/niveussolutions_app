@@ -56,6 +56,8 @@ class NiveHomeScreen extends StatelessWidget {
 
   Widget _buildMobileView(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
 
         _buildSearchWidget(),
@@ -69,6 +71,7 @@ class NiveHomeScreen extends StatelessWidget {
         Text('Total Records: ${_authController.filteredUserList.length}'),
 
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _buildHeader(
               "Name",
@@ -110,45 +113,32 @@ class NiveHomeScreen extends StatelessWidget {
 
                 _authController.openUserDetails(user, index);
     },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  // crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                child: Center(
+                  child: Row(
 
-                    _buildDetails(
-                      user.name,
-                      getColumnWidth(context, "Name"),
-                      50,9,isSelected
-                    ),
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
 
-                    _buildDetails(
-                      user.language,
-                      getColumnWidth(context, "Language"),
-                      50,9,isSelected
-                    ),
+                      _buildDetails(
+                        user.name,
+                        getColumnWidth(context, "Name"),
+                        50,9,isSelected
+                      ),
 
-                    // _buildDetails(
-                    //   user.id,
-                    //   getColumnWidth(context, "ID"),
-                    //   50,9,isSelected
-                    // ),
+                      _buildDetails(
+                        user.language,
+                        getColumnWidth(context, "Language"),
+                        50,9,isSelected
+                      ),
 
-                    // Text(
-                    //   user.name,
-                    //   style: const TextStyle(
-                    //     fontSize: 18,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
-                    //
-                    // const SizedBox(height: 8),
-                    //
-                    // Text("Language : ${user.language}"),
-                    //
-                    // Text("ID : ${user.id}"),
-                    //
-                    // Text("Version : ${user.version}"),
-                  ],
+                      // _buildDetails(
+                      //   user.id,
+                      //   getColumnWidth(context, "ID"),
+                      //   50,9,isSelected
+                      // ),
+
+                    ],
+                  ),
                 ),
               );
             },
